@@ -66,7 +66,7 @@ const MyBids = () => {
                   </tr>
                 </thead>
                 <tbody className='bg-white divide-y divide-gray-200 '>
-                  {data.map(item => <tr key={item._id}>
+                  {data?.map(item => <tr key={item._id}>
                     <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
                       {item.job_title}
                     </td>
