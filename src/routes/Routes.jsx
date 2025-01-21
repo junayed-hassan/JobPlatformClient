@@ -12,7 +12,6 @@ import PrivateRoute from './PrivateRoute'
 import MyBids from '../pages/MyBids'
 import BidRequests from '../pages/BidRequests'
 import AllJobs from '../pages/AllJobs'
-import axios from 'axios'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -42,11 +41,6 @@ const router = createBrowserRouter([
             <JobDetails />
           </PrivateRoute>
         ),
-        loader: async ({ params }) => {
-          const data = await axios(`${import.meta.env.VITE_API_URL}/jobs/id/${params.id}`)
-          return data.data
-
-        }
       },
       {
         path: '/update/:id',
@@ -55,13 +49,7 @@ const router = createBrowserRouter([
             <UpdateJob />
           </PrivateRoute>
         ),
-        loader: async ({ params }) => {
-          const data = await axios(`${import.meta.env.VITE_API_URL}/jobs/id/${params.id}`)
-          return data
-
-        }
       },
-
       {
         path: '/add-job',
         element: (
@@ -77,7 +65,6 @@ const router = createBrowserRouter([
             <MyBids />
           </PrivateRoute>
         ),
-        loader: async () => await axios(`${import.meta.env.VITE_API_URL}/bids`)
       },
       {
         path: '/my-posted-jobs',
@@ -98,6 +85,5 @@ const router = createBrowserRouter([
     ],
   },
 ])
-
 
 export default router
